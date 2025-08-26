@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Login } from "../pages/Login"
 import { Link } from "react-router-dom"
+import { CheckCircle } from "lucide-react";
 
 
 function GerenciadorLogin() {
@@ -33,18 +34,21 @@ function GerenciadorLogin() {
 
     if (token) {
         return (
-            <div className="text-white">
-                <h2>Usuário Logado</h2>
-                <p><strong>Nome:</strong> {nome}</p>
-                <p><strong>Email:</strong> {email}</p>
-                <button onClick={sair}>Sair</button>
+            <div className="text-white flex items-center gap-4">
+                <p>
+                    <strong>Nome:</strong> {nome}
+                </p>
+                <div className="flex items-center gap-2">
+                    <CheckCircle className="text-green-500 w-5 h-5" />
+                    <span>Usuário Logado</span>
+                </div>
+                <button onClick={sair} className="bg-red-600 px-3 py-1 rounded-lg hover:bg-red-700 transition">Sair</button>
             </div>
         );
     }
 
     return (
         <div>
-
             <Link to="/login">Faça o login</Link>
         </div>
     );

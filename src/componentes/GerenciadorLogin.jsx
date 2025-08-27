@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { Login } from "../pages/Login"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CheckCircle } from "lucide-react";
 
 
@@ -9,6 +8,7 @@ function GerenciadorLogin() {
 
     const [email, setEmail] = useState("")
     const [token, setToken] = useState("")
+    const navigate = useNavigate()
 
     function buscarUsuario() {
         const tokenUsuario = localStorage.getItem("token")
@@ -49,7 +49,7 @@ function GerenciadorLogin() {
 
     return (
         <div>
-            <Link to="/login">Faça o login</Link>
+            <button onClick={() => navigate("/login")} className="bg-red-600 px-3 py-1 rounded-lg hover:bg-red-700 transition">Login</button>
         </div>
     );
 
